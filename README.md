@@ -14,6 +14,7 @@ Shows value in either MB/s, KB/s, or B/s.
 - `#{upload_speed}` - Shows only upload speed,
 - `#{net_speed}` - Shows both the upload and download speeds.
     **Example**: "D: 123 MB/s U: 25 MB/s"
+- `#{ip}` - Shows ip addres from selected interfaces
 
 ## Past Values
 Since this is a difference, the old values are stored in files in `/tmp/`. The user must be able to
@@ -29,6 +30,7 @@ grabs all the interfaces listed in "/sys/class/net/"
 ```
 set -g @net_speed_interfaces "eth0 eth1"
 ```
+Note: ip only takes one interface
 
 To change the formatter sting passed to `printf`.
 
@@ -36,6 +38,7 @@ To change the formatter sting passed to `printf`.
 set -g @download_speed_format "%10s"
 set -g @upload_speed_format "%10s"
 set -g @net_speed_format "D:%10s U:%10s"
+set -g @net_ip_format "IP(%s): %10s" 
 ```
 
 ### Installation with [Tmux Plugin Manager](https://github.com/tmux-plugins/tpm) (recommended)
